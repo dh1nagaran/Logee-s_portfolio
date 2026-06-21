@@ -4,10 +4,10 @@ import Home from './Components/Home'
 import About from './Components/About'
 import Skills from './Components/Skills'
 import Experience from './Components/Experience'
-import { Contact } from 'lucide-react'
-import Contacts from './Components/contacts'
+import Contacts from './Components/Contacts';
 import Projects from './Components/Projects'
 import Footer from './Components/Footer'
+
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
