@@ -11,30 +11,99 @@ const About = ({ darkMode, setDarkMode }) => {
     }, [darkMode])
 
     useGSAP(() => {
-        gsap.from(".about-2 > p", {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: ".about-2 > p",
-                start: "top 50%",
-                toggleActions: "play none none reverse"
-            }
+
+        const mm = gsap.matchMedia();
+
+        // Desktop
+        mm.add("(min-width: 992px)", () => {
+
+            gsap.from(".about-2 > p", {
+                opacity: 0,
+                y: 40,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".about-2 > p",
+                    start: "top 75%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            gsap.from(".about-section-2 > span", {
+                opacity: 0,
+                x: -50,
+                duration: 1,
+                stagger: 0.3,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".about-section-2",
+                    start: "top 75%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
         });
 
-        gsap.from(".about-section-2 > span", {
-            opacity: 0,
-            x: -40,
-            duration: 1,
-            stagger: 0.5,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".about-section-2",
-                start: "top 55%",
-                toggleActions: "play none none reverse"
-            }
+
+        // Tablet
+        mm.add("(min-width: 768px) and (max-width: 991px)", () => {
+
+            gsap.from(".about-2 > p", {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".about-2 > p",
+                    start: "top 85%"
+                }
+            });
+
+            gsap.from(".about-section-2 > span", {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".about-section-2",
+                    start: "top 85%"
+                }
+            });
+
         });
+
+
+        // Mobile
+        mm.add("(max-width: 767px)", () => {
+
+            gsap.from(".about-2 > p", {
+                opacity: 0,
+                y: 20,
+                duration: 0.7,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".about-2 > p",
+                    start: "top 90%"
+                }
+            });
+
+            gsap.from(".about-section-2 > span", {
+                opacity: 0,
+                y: 20,
+                duration: 0.7,
+                stagger: 0.15,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".about-section-2",
+                    start: "top 90%"
+                }
+            });
+
+        });
+
+        return () => mm.revert();
+
     });
 
     return (
