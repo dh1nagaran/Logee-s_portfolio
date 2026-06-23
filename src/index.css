@@ -113,7 +113,8 @@
 
 .home-main {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -243,6 +244,7 @@
     width: 100vw;
     min-height: 100vh;
     height: auto;
+    overflow: hidden;
     background-color: var(--color-paper);
     font-family: var(--font-sans);
     border: 1px solid color-mix(in oklab, var(--color-ink) 10%, transparent);
@@ -333,7 +335,7 @@
     align-items: center;
     gap: 50px;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: var(--color-paper);
     font-family: var(--font-sans);
 }
@@ -556,12 +558,12 @@
 }
 
 .footer-main {
-    width: 100vw;
+    width: 100%;
+    padding: 0 20px;
     height: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 100px;
 }
 
 .footer-1 {
@@ -887,11 +889,16 @@
         height: fit-content;
     }
 
+
+    .home-main,
     .about,
-    .expri,
     .skills,
+    .expri,
     .projects,
-    .contacts {
+    .contacts,
+    .footer {
+        width: 100%;
+        overflow-x: hidden;
         height: fit-content;
         padding: 50px 0px;
         flex-direction: column;
@@ -1183,4 +1190,15 @@
         width: fit-content;
     }
 
+}
+
+.home-main,
+.about,
+.skills,
+.expri,
+.projects,
+.contacts,
+.footer {
+    width: 100% !important;
+    overflow-x: hidden !important;
 }
