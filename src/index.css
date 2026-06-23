@@ -30,25 +30,8 @@
 
 .animated-grid {
     background-color: var(--color-paper);
-    background-image:
-        linear-gradient(var(--color-black) 1px, transparent 1px),
-        linear-gradient(90deg, var(--color-black) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: move-grid 20s linear infinite;
     scroll-behavior: smooth;
 }
-
-@keyframes move-grid {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 50px 50px;
-    }
-}
-
-
 
 .main-nav {
     width: 100vw;
@@ -701,10 +684,6 @@
 
 .dark-animated-grid {
     background-color: var(--color-ink);
-    background-image:
-        linear-gradient(var(--color-white) 1px, transparent 1px),
-        linear-gradient(90deg, var(--color-white) 1px, transparent 1px);
-    background-size: 50px 50px;
 }
 
 .dark-main {
@@ -873,9 +852,6 @@
 
 
 @media screen and (max-width:900px) {
-
-
-
     .nav-tags ul {
         gap: 10px;
     }
@@ -965,7 +941,7 @@
     }
 
     .contacts-2-info {
-        width: 100%;
+        width: 70%;
     }
 }
 
@@ -1015,7 +991,12 @@
     }
 
     .contacts-2-info {
+
         width: 100%;
+    }
+
+    .contacts {
+        min-height: fit-content;
     }
 
 }
@@ -1100,9 +1081,7 @@
         margin-left: 30px;
     }
 
-    .contacts-2 h1 {
-        font-size: 80px;
-    }
+
 
     .section-child h1 {
         width: 100%;
@@ -1111,6 +1090,10 @@
     .expri-section .section-child {
         flex-direction: column;
         align-items: start;
+    }
+
+    .contacts-2 {
+        padding: 0px 30px;
     }
 
     .contacts-2 h1 {
@@ -1141,6 +1124,63 @@
 
     .home-details .details h2 {
         font-size: 25px;
+    }
+
+    .contacts-2 h1 {
+        font-size: 58px;
+    }
+
+    .contacts-2 {
+        padding: 0px 10px;
+    }
+
+    .contacts-2-info h2 {
+        justify-content: flex-start;
+        width: 100vw;
+        gap: 10px;
+    }
+
+    .expri-2 {
+        padding: 0px;
+    }
+
+    .section-child h1 {
+        font-size: 20px;
+    }
+
+    .expri-section h2 {
+        font-size: 16px;
+    }
+
+    .section-child h3 {
+        font-size: 14px;
+    }
+
+    .footer-1 h3 {
+        width: 100%;
+    }
+
+    .footer-2 {
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        padding: 0px;
+    }
+
+    .footer-main {
+        padding-left: 20px;
+    }
+
+    .contacts-2-info h2 a {
+        display: none;
+    }
+
+    .footer-3 {
+        padding-left: 20px;
+    }
+
+    .footer-2 {
+        width: fit-content;
     }
 
 }
