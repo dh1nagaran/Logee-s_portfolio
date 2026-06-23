@@ -31,20 +31,24 @@ const Skills = ({ darkMode }) => {
     }, [darkMode]);
 
     useGSAP(() => {
-        gsap.from(".skill-contains", {
-            opacity: 0,
-            x: -60,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".skill-2",
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-            }
+
+        gsap.utils.toArray(".skill-contains").forEach((card, index) => {
+
+            gsap.from(card, {
+                opacity: 0,
+                x: index % 2 === 0 ? -80 : 80,
+                y: 30,
+                duration: 0.9,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
         });
 
-        ScrollTrigger.refresh();
     });
 
     return (
