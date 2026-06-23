@@ -33,20 +33,28 @@ const Projects = ({ darkMode }) => {
     const darkRef = useRef(null);
     const containerRef = useRef(null);
     useGSAP(() => {
-        gsap.from(".project-2-contain", {
-            opacity: 0,
-            y: 50,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: ".projects-2",
-                start: "top 10%",
-                toggleActions: "play none none reverse"
-            }
+
+        gsap.utils.toArray(".project-2-contain").forEach((card, index) => {
+
+            gsap.from(card, {
+                opacity: 0,
+                x: window.innerWidth > 768 ? (index % 2 === 0 ? -100 : 100) : 0,
+                y: window.innerWidth <= 768 ? 40 : 20,
+                duration: 0.9,
+                delay: index * 0.1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
         });
 
-        ScrollTrigger.refresh();
-    }, { scope: containerRef, dependencies: [projects] });
+        return () => ScrollTrigger.refresh();
+
+    }, { scope: containerRef });
 
     useEffect(() => {
         if (darkRef.current) {
